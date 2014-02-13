@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test Page</title>
+<link rel="stylesheet" href="css/main.css" />
+<script src="jquery/jquery-1.10.2.js"></script>
+<style>
+#hello_div {
+	position: absolute;
+	top: 100px;
+	left: 500px;
+	width: 100%;
+	height: 4px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+		   
+	$('#submit').click(function(){
+		 var windowHeight = $(window).height();
+		    var divHeight = $('#hello_div').height();
+		    var desiredBottom = 100;
+		    
+		    var newPosition = windowHeight - (divHeight + desiredBottom);
+		    
+		    $('#hello_div').animate({top:newPosition,fontSize:'5em'},3000,function () {
+		        $('#hello_div').css({
+		            bottom: desiredBottom,
+		            top: 'auto'
+		        });
+		    });
+	});
+	
+});
+	
+</script>
+
+
+</head>
+<body>
+
+	<section class="header">Hi, Welcome to HTML5 and CSS3!!</section>
+	<br />
+	<button id="submit">Submit</button>
+
+	<div id="hello_div" class="hello">Hello World</div>
+
+</body>
+</html>
