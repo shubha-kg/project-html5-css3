@@ -20,7 +20,7 @@ $(document).ready(function(){
 	$("#hello_div").html(originalState);
 	
 	$('#submit').click(function(){
-		
+		$('#hello_div').removeAttr('style');
 		 var windowHeight = $(window).height();
 		    var divHeight = $('#hello_div').height();
 		    var desiredBottom = 100;
@@ -28,7 +28,10 @@ $(document).ready(function(){
 		    var newPosition = windowHeight - (divHeight + desiredBottom);
 		    
 		    $('#hello_div').animate({top:newPosition,fontSize:'5em'},3000,function () {
-		    	 $('#hello_div').removeAttr('style');
+		        $('#hello_div').css({
+		            bottom: desiredBottom,
+		            top: 'auto'
+		        });
 		    });
 	});
 	
