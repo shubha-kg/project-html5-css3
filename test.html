@@ -16,8 +16,11 @@
 </style>
 <script type="text/javascript">
 $(document).ready(function(){
-		   
+	var originalState = $("#hello_div").html();
+	$("#hello_div").html(originalState);
+	
 	$('#submit').click(function(){
+		
 		 var windowHeight = $(window).height();
 		    var divHeight = $('#hello_div').height();
 		    var desiredBottom = 100;
@@ -25,28 +28,30 @@ $(document).ready(function(){
 		    var newPosition = windowHeight - (divHeight + desiredBottom);
 		    
 		    $('#hello_div').animate({top:newPosition,fontSize:'5em'},3000,function () {
-		        $('#hello_div').css({
-		            bottom: desiredBottom,
-		            top: 'auto'
-		        });
+		    	 $('#hello_div').removeAttr('style');
 		    });
 	});
 	
 });
-	
+
 </script>
 
 
 </head>
+
 <body>
-
-	<section class="header">Hi, Welcome to HTML5 and CSS3!!</section>
-	<br />
-	<label>Animate Text</label>
 	
-	<button id="submit">Submit</button>
+		<section class="header">Hi, Welcome to HTML5 and CSS3!!</section>
+		<br />
 
-	<div id="hello_div" class="hello">Hello World</div>
+		<label>Animate Text</label>
+		
+		<div id="hello_div" class="hello">Hello World</div>
+		<br/>
+	
+		<button id="submit">Submit</button>
+		<button id="reset">Reset</button>
 
 </body>
+
 </html>
